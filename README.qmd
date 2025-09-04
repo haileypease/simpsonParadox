@@ -51,7 +51,8 @@ plot1 <- ggplot(data = penguins,
        y = "Bill depth (mm)") +
   theme(plot.title.position = "plot",
         plot.caption = element_text(hjust = 0, face= "italic"),
-        plot.caption.position = "plot") +
+        plot.caption.position = "plot",
+        plot.margin = margin(t = 50, r = 20, b = 20, l = 20)) +
   geom_smooth(method = "lm", se = FALSE, color = "red", linewidth = 1.5)
 
 plot1
@@ -82,7 +83,8 @@ plot2 <- ggplot(data = penguins,
   theme(plot.title.position = "plot",
         plot.caption = element_text(hjust = 0, face = "italic"),
         plot.caption.position = "plot",
-        legend.position = "bottom") +
+        legend.position = "bottom",
+        plot.margin = margin(t = 50, r = 20, b = 20, l = 20)) +
   # Overall trend (ignoring species)
   geom_smooth(method = "lm", se = FALSE, color = "red", 
               linewidth = 1.5, alpha = 0.8) +
@@ -109,16 +111,16 @@ This is Simpson's Paradox in action. The species variable is a **confounding var
 
 # Create the side-by-side comparison using patchwork
 comparison_plot <- plot1 + plot2 +
-  plot_layout(guides = "collect") +
+  plot_layout(guides = "collect", heights = c(1, 1)) +
   plot_annotation(
     title = "Simpson's Paradox: When Aggregation Lies",
     subtitle = "The relationship between bill length and depth reverses when we consider species grouping",
     caption = "Left: Overall relationship suggests positive correlation | Right: Within-species analysis reveals negative correlations\nThis demonstrates how ignoring confounding variables can lead to completely wrong conclusions",
     theme = theme_minimal(16) +
       theme(
-        plot.title = element_text(size = 20, face = "bold", hjust = 0.5, margin = margin(b = 15)),
-        plot.subtitle = element_text(size = 16, hjust = 0.5, margin = margin(b = 25)),
-        plot.caption = element_text(size = 12, hjust = 0, face = "italic", margin = margin(t = 25)),
+        plot.title = element_text(size = 20, face = "bold", hjust = 0.5, margin = margin(b = 60)),
+        plot.subtitle = element_text(size = 16, hjust = 0.5, margin = margin(b = 80)),
+        plot.caption = element_text(size = 12, hjust = 0, face = "italic", margin = margin(t = 60)),
         plot.title.position = "plot",
         plot.caption.position = "plot"
       )
