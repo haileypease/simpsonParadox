@@ -107,17 +107,37 @@ This is Simpson's Paradox in action. The species variable is a **confounding var
 
 ### C. Side-by-Side Comparison
 
-**🎯 Your Task:** Use Cursor's AI assistant to create a compelling side-by-side comparison plot!
+```{r}
+#| message: false
+#| warning: false
+#| fig-cap: "Simpson's Paradox: The same data tells two different stories"
 
-**Instructions:**
-1. Ask Cursor: *"Create a side-by-side comparison plot using patchwork that combines plot1 and plot2 with a title, subtitle, and caption explaining Simpson's Paradox"*
-2. The plot should clearly show the contrast between the overall relationship and the species-specific relationships
-3. Use `theme_minimal(16)` for consistency
-4. **Replace these instructions with the actual plot code that Cursor generates**
-5. **Render the README.md file** using `quarto render README.qmd`
-6. Make sure to sync your changes to your GitHub folder for grading!
+# Create the side-by-side comparison using patchwork
+comparison_plot <- plot1 + plot2 +
+  plot_layout(guides = "collect") +
+  plot_annotation(
+    title = "Simpson's Paradox: When Aggregation Lies",
+    subtitle = "The relationship between bill length and depth reverses when we consider species grouping",
+    caption = "Left: Overall relationship suggests positive correlation | Right: Within-species analysis reveals negative correlations\nThis demonstrates how ignoring confounding variables can lead to completely wrong conclusions",
+    theme = theme_minimal(16) +
+      theme(
+        plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
+        plot.subtitle = element_text(size = 16, hjust = 0.5, margin = margin(b = 20)),
+        plot.caption = element_text(size = 12, hjust = 0, face = "italic", margin = margin(t = 20)),
+        plot.title.position = "plot",
+        plot.caption.position = "plot"
+      )
+  )
 
-**What you should see:** A powerful visualization that makes Simpson's Paradox crystal clear - the same data telling two completely different stories depending on whether we consider the species grouping variable.
+comparison_plot
+```
+**The Power of Side-by-Side Visualization!** 🎯
+
+This comparison makes Simpson's Paradox crystal clear:
+- **Left plot:** Shows the misleading overall positive relationship
+- **Right plot:** Reveals the true negative relationships within each species
+- **The paradox:** The same data tells two completely different stories depending on whether we consider the species grouping variable
+
 
 ## Key Takeaways: Lessons from Simpson's Paradox
 
@@ -152,4 +172,5 @@ This is Simpson's Paradox in action. The species variable is a **confounding var
 Simpson's Paradox teaches us that **context matters**. The penguin data shows us that what appears to be a simple positive relationship between bill length and depth is actually masking a more complex reality where the relationship is negative within each species. This paradox reminds us to always dig deeper, consider confounding variables, and never trust aggregate statistics without examining the underlying groups.
 
 Remember: **The truth is in the details, not in the summary statistics.**
+
 
