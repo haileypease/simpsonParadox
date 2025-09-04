@@ -108,7 +108,7 @@ Notice what just happened:
 
 This is Simpson's Paradox in action. The species variable is a **confounding variable** that completely reverses the apparent relationship when we aggregate the data.
 
-### C. Side-by-Side Comparison
+### C. Stacked Comparison
 
 ```{r}
 #| message: false
@@ -134,11 +134,11 @@ comparison_plot <- plot1 / plot2 +
 
 comparison_plot
 ```
-**The Power of Side-by-Side Visualization!** 🎯
+**The Power of Stacked Visualization!** 🎯
 
 This comparison makes Simpson's Paradox crystal clear:
-- **Left plot:** Shows the misleading overall positive relationship
-- **Right plot:** Reveals the true negative relationships within each species
+- **Top plot:** Shows the misleading overall positive relationship
+- **Bottom plot:** Reveals the true negative relationships within each species
 - **The paradox:** The same data tells two completely different stories depending on whether we consider the species grouping variable
 
 
