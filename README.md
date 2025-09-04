@@ -116,21 +116,7 @@ relationship when we aggregate the data.
 
 ``` r
 # Create the stacked comparison using patchwork
-comparison_plot <- plot1 / plot2 +
-  plot_layout(guides = "collect") +
-  plot_annotation(
-    title = "Simpson's Paradox: When Aggregation Lies",
-    subtitle = "The relationship between bill length and depth reverses when we consider species grouping",
-    caption = "Top: Overall relationship suggests positive correlation | Bottom: Within-species analysis reveals negative correlations\nThis demonstrates how ignoring confounding variables can lead to completely wrong conclusions",
-    theme = theme_minimal(16) +
-      theme(
-        plot.title = element_text(size = 24, face = "bold", hjust = 0.5, margin = margin(b = 100)),
-        plot.subtitle = element_text(size = 18, hjust = 0.5, margin = margin(b = 120)),
-        plot.caption = element_text(size = 14, hjust = 0, face = "italic", margin = margin(t = 80)),
-        plot.title.position = "plot",
-        plot.caption.position = "plot"
-      )
-  )
+comparison_plot <- plot1 / plot2 
 
 comparison_plot
 ```
