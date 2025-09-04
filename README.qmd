@@ -108,20 +108,20 @@ Notice what just happened:
 
 This is Simpson's Paradox in action. The species variable is a **confounding variable** that completely reverses the apparent relationship when we aggregate the data.
 
-### C. Stacked Comparison
+### C. Side-by-Side Comparison
 
 ```{r}
 #| message: false
 #| warning: false
 #| fig-cap: "Simpson's Paradox: The same data tells two different stories"
 
-# Create the stacked comparison using patchwork
-comparison_plot <- plot1 / plot2 +
+# Create the side-by-side comparison using patchwork
+comparison_plot <- plot1 + plot2 +
   plot_layout(guides = "collect") +
   plot_annotation(
     title = "Simpson's Paradox: When Aggregation Lies",
     subtitle = "The relationship between bill length and depth reverses when we consider species grouping",
-    caption = "Top: Overall relationship suggests positive correlation | Bottom: Within-species analysis reveals negative correlations\nThis demonstrates how ignoring confounding variables can lead to completely wrong conclusions",
+    caption = "Left: Overall relationship suggests positive correlation | Right: Within-species analysis reveals negative correlations\nThis demonstrates how ignoring confounding variables can lead to completely wrong conclusions",
     theme = theme_minimal(16) +
       theme(
         plot.title = element_text(size = 24, face = "bold", hjust = 0.5, margin = margin(b = 100)),
@@ -134,11 +134,11 @@ comparison_plot <- plot1 / plot2 +
 
 comparison_plot
 ```
-**The Power of Stacked Visualization!** 🎯
+**The Power of Side-by-Side Visualization!** 🎯
 
 This comparison makes Simpson's Paradox crystal clear:
-- **Top plot:** Shows the misleading overall positive relationship
-- **Bottom plot:** Reveals the true negative relationships within each species
+- **Left plot:** Shows the misleading overall positive relationship
+- **Right plot:** Reveals the true negative relationships within each species
 - **The paradox:** The same data tells two completely different stories depending on whether we consider the species grouping variable
 
 
