@@ -116,7 +116,7 @@ relationship when we aggregate the data.
 
 ``` r
 # Create the stacked comparison using patchwork
-comparison_plot <- plot1 / plot2 
+comparison_plot <- plot1 + plot2 
 
 comparison_plot
 ```

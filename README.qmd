@@ -116,7 +116,7 @@ This is Simpson's Paradox in action. The species variable is a **confounding var
 #| fig-cap: "Simpson's Paradox: The same data tells two different stories"
 
 # Create the stacked comparison using patchwork
-comparison_plot <- plot1 / plot2 
+comparison_plot <- plot1 + plot2 
 
 comparison_plot
 ```
